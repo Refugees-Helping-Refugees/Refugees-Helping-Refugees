@@ -13,8 +13,7 @@ export function HeroSection() {
   }
 
   return (
-<section id="hero" className="relative bg-gradient-to-r from-purple-400/10 to-purple-700/10 py-20">      
-  <div className="container mx-auto px-4">
+section id="hero" className="relative bg-gradient-to-r from-primary/10 to-secondary/10 py-20"
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl lg:text-6xl font-bold text-balance leading-tight">
