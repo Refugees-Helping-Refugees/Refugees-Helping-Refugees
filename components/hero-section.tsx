@@ -12,11 +12,11 @@ export function HeroSection() {
   }
   
   return (
-    <section id="hero" className="relative bg-gradient-to-r from-primary/10 to-secondary/10 py-20">
+    <section id="hero" className="relative bg-purple-50 py-20">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-4xl lg:text-6xl font-bold text-balance leading-tight">
+            <h1 className="text-4xl lg:text-6xl font-bold text-balance leading-tight bg-white px-6 py-4 rounded-lg shadow-sm">
               Empowering Refugees Through Community
             </h1>
             <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
@@ -31,7 +31,12 @@ export function HeroSection() {
               >
                 Learn More
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild
+                className="bg-purple-900 text-white hover:bg-purple-800 border-purple-900"
+              >
                 <Link href="/donations/donate-to-rhr/">Donate Now</Link>
               </Button>
             </div>
@@ -48,5 +53,7 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+    )
+}
   )
 }
