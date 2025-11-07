@@ -27,17 +27,9 @@ export function HeroSection() {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("programs")}
-                className="bg-primary hover:bg-primary/90 cursor-pointer"
-              >
-                Learn More
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                asChild
                 className="bg-purple-900 text-white hover:bg-purple-800 border-purple-900"
               >
-                <Link href="/donations/donate-to-rhr/">Donate Now</Link>
+                Learn More
               </Button>
             </div>
           </div>
