@@ -36,4 +36,17 @@ export function HeroSection() {
               </Button>
             </div>
           </div>
-          <div clas
+          <div className="relative">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/RHR%20Photo-g7KwG0bUZj6HR0fcazSkicnfKsjcFw.jpeg"
+              alt="Refugees learning together in a classroom setting"
+              width={600}
+              height={400}
+              className="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
