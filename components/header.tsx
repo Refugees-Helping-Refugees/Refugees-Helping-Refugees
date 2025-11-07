@@ -55,7 +55,7 @@ export function Header() {
               </button>
             </ContactModal>
           </nav>
-          <Button asChild className="bg-purple-700 hover:bg-purple-800 text-white">
+          <Button asChild className="bg-purple-900 text-white hover:bg-purple-800 border-purple-900">
             <a href="/donations/donate-to-rhr/">Donate Now</a>
           </Button>
         </div>
