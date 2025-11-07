@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export function VolunteerSection() {
   return (
-    <section id="volunteer" className="py-20 bg-white">
+    <section id="volunteer" className="py-20 bg-purple-50">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
@@ -28,7 +28,7 @@ export function VolunteerSection() {
               volunteers are reliable and innovative, and seek to make a positive difference in the refugee and
               Rochester community.
             </p>
-            <Button size="lg" asChild className="bg-purple-700 hover:bg-purple-800 text-white">
+            <Button size="lg" asChild className="bg-purple-900 hover:bg-purple-800 text-white">
               <Link
                 href="https://docs.google.com/forms/d/e/1FAIpQLSe6YQgyUgzJf319oM_PUYlNNKlHOQbIDWtBHbdhkDUAbLzIyg/viewform"
                 target="_blank"
