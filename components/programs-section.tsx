@@ -34,7 +34,7 @@ export function ProgramsSection() {
           {programs.map((program, index) => (
             <Card key={index} className="bg-card hover:shadow-lg transition-shadow overflow-hidden">
               <div className="aspect-video relative overflow-hidden">
-                <Image src={program.image || "/placeholder.svg"} alt={program.alt} fill className="object-cover h-auto py-[-] py-[-5] py-[0] my-[0]" />
+                <Image src={program.image || "/placeholder.svg"} alt={program.alt} fill  className="relative bg-purple-50 py-20 />
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">{program.title}</CardTitle>
