@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ContactModal } from "@/components/contact-modal"
@@ -11,9 +10,9 @@ export function Header() {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
-
+  
   return (
-    <header className="bg-purple-900 border-b border-border sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -25,40 +24,38 @@ export function Header() {
               className="h-12 w-auto"
             />
           </div>
-
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer font-medium"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("impact")}
-              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer font-medium"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("programs")}
-              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer font-medium"
             >
               Programs
             </button>
             <button
               onClick={() => scrollToSection("volunteer")}
-              className="text-foreground hover:text-primary transition-colors cursor-pointer"
+              className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer font-medium"
             >
               Volunteer
             </button>
             <ContactModal>
-              <button className="text-foreground hover:text-primary transition-colors cursor-pointer">
+              <button className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer font-medium">
                 Contact
               </button>
             </ContactModal>
           </nav>
-
-          <Button asChild className="bg-primary hover:bg-primary/90">
+          <Button asChild className="bg-purple-700 hover:bg-purple-800 text-white">
             <a href="/donations/donate-to-rhr/">Donate Now</a>
           </Button>
         </div>
