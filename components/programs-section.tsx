@@ -19,28 +19,32 @@ export function ProgramsSection() {
       alt: "Case manager helping a client with paperwork",
     }
   ]
-
+  
   return (
-    <section id="programs" className="py-20 bg-muted/30">
+    <section id="programs" className="py-20 bg-purple-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">Our Programs</h2>
-          <p className="text-xl text-muted-foreground text-pretty max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance text-purple-900">Our Programs</h2>
+          <p className="text-xl text-gray-700 text-pretty max-w-2xl mx-auto">
             We offer a variety of programs that ensure our clients are able to achieve sustainability as new Americans.
           </p>
         </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
-            <Card key={index} className="bg-card hover:shadow-lg transition-shadow overflow-hidden">
+            <Card key={index} className="bg-white border-purple-200 hover:shadow-lg transition-shadow overflow-hidden">
               <div className="aspect-video relative overflow-hidden">
-                <Image src={program.image || "/placeholder.svg"} alt={program.alt} fill  className="relative bg-purple-50 py-20 />
+                <Image 
+                  src={program.image || "/placeholder.svg"} 
+                  alt={program.alt} 
+                  fill
+                  className="object-cover"
+                />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl">{program.title}</CardTitle>
+                <CardTitle className="text-xl text-purple-900">{program.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base leading-relaxed">{program.description}</CardDescription>
+                <CardDescription className="text-base leading-relaxed text-gray-600">{program.description}</CardDescription>
               </CardContent>
             </Card>
           ))}
