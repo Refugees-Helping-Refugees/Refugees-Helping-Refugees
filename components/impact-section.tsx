@@ -34,7 +34,7 @@ export function ImpactSection() {
           {stats.map((stat, index) => (
             <Card key={index} className="text-center bg-card">
               <CardContent className="pt-6">
-                <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className=className="relative bg-purple-50 py-20">{stat.number}</div>
                 <div className="text-muted-foreground">{stat.label}</div>
               </CardContent>
             </Card>
