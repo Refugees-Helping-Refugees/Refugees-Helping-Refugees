@@ -12,21 +12,21 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-primary text-primary-foreground py-16">
+    <footer className="bg-purple-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Contact Us</h3>
-            <div className="space-y-2 text-primary-foreground/90">
+            <div className="space-y-2 text-white/90">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+15855637747" className="hover:text-primary-foreground transition-colors">
+                <a href="tel:+15855637747" className="hover:text-white transition-colors">
                   (585) 563-7747
                 </a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:rhr@rhrroc.org" className="hover:text-primary-foreground transition-colors">
+                <a href="mailto:rhr@rhrroc.org" className="hover:text-white transition-colors">
                   rhr@rhrroc.org
                 </a>
               </div>
@@ -35,7 +35,7 @@ export function Footer() {
                 <a
                   href="https://maps.google.com/?q=228+South+Plymouth+Rochester+NY+14608"
                   target="_blank"
-                  className="hover:text-primary-foreground transition-colors"
+                  className="hover:text-white transition-colors"
                   rel="noreferrer"
                 >
                   228 South Plymouth
@@ -51,24 +51,24 @@ export function Footer() {
             <div className="space-y-2">
               <button
                 onClick={() => scrollToSection("impact")}
-                className="block text-left text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 About Us
               </button>
               <button
                 onClick={() => scrollToSection("programs")}
-                className="block text-left text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 Programs
               </button>
               <button
                 onClick={() => scrollToSection("volunteer")}
-                className="block text-left text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 Volunteer
               </button>
               <ContactModal>
-                <button className="block text-left text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer">
+                <button className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer">
                   Contact
                 </button>
               </ContactModal>
@@ -80,13 +80,13 @@ export function Footer() {
             <div className="space-y-2">
               <a
                 href="/donations/donate-to-rhr/"
-                className="block text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="block text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 Donate
               </a>
               <button
                 onClick={() => scrollToSection("volunteer")}
-                className="block text-left text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 Volunteer
               </button>
@@ -99,7 +99,7 @@ export function Footer() {
               <a
                 href="https://www.facebook.com/RefugeesHelpingRefugees/"
                 target="_blank"
-                className="flex items-center space-x-2 text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors cursor-pointer"
                 rel="noreferrer"
               >
                 <Facebook size={20} />
@@ -108,7 +108,7 @@ export function Footer() {
               <a
                 href="https://www.instagram.com/refugeeshelpingrefugees/"
                 target="_blank"
-                className="flex items-center space-x-2 text-primary-foreground/90 hover:text-primary-foreground transition-colors cursor-pointer"
+                className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors cursor-pointer"
                 rel="noreferrer"
               >
                 <Instagram size={20} />
@@ -118,7 +118,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-primary-foreground/90">
+        <div className="border-t border-white/20 mt-12 pt-8 text-center text-white/90">
           <p>&copy; 2025 Refugees Helping Refugees. All rights reserved.</p>
         </div>
       </div>
