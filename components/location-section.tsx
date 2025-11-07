@@ -1148,20 +1148,6 @@ export function LocationSection() {
   )
 }
 
-Show more
-location-section.tsx
-Code 
-Updated the Location Section with purple theme! Changes:
-
-Section background: Light purple (bg-purple-50)
-Headings: Dark purple (text-purple-900)
-Card:
-
-
-
-
-
-
 
 "use client"
 import { Button } from "@/components/ui/button"
