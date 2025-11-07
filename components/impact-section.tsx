@@ -8,9 +8,9 @@ export function ImpactSection() {
     { number: "100+", label: "Active Volunteers" },
     { number: "3", label: "Core Programs" },
   ]
-
+  
   return (
-    <section className="py-20 bg-primary/5">
+    <section className="py-20 bg-purple-50">
       <div className="container mx-auto px-4">
         <div className="relative rounded-lg overflow-hidden mb-16">
           <Image
@@ -21,21 +21,19 @@ export function ImpactSection() {
             className="w-full h-64 lg:h-80 object-cover"
           />
         </div>
-
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance">Making a Difference</h2>
-          <p className="text-xl text-foreground/80 text-pretty max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-balance text-purple-900">Making a Difference</h2>
+          <p className="text-xl text-gray-700 text-pretty max-w-2xl mx-auto">
             Through community support and dedicated programs, we're helping refugees build new lives in Western New
             York.
           </p>
         </div>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center bg-card">
+            <Card key={index} className="text-center bg-white border-purple-200 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
-                <div className=className="relative bg-purple-50 py-20">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-4xl font-bold text-purple-700 mb-2">{stat.number}</div>
+                <div className="text-gray-600">{stat.label}</div>
               </CardContent>
             </Card>
           ))}
