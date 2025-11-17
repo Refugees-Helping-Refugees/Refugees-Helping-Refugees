@@ -19,7 +19,7 @@ export function LocationSection() {
               <div className="space-y-3 text-gray-700">
                 <p className="flex items-start space-x-3">
                   <span className="font-medium text-purple-900">Address:</span>
-                  <span>228 South Plymouth, Rochester, NY 14608</span>
+                  <span>228 South Plymouth Ave, Rochester, NY 14608</span>
                 </p>
                 <p className="flex items-center space-x-3">
                   <span className="font-medium text-purple-900">Phone:</span>
