@@ -85,8 +85,11 @@ export function Footer() {
                 Donate
               </a>
               <button
-                onClick={() => scrollToSection("volunteer")}
-                className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer"
+              <a
+                  href="https://www.zeffy.com/en-US/donation-form/donate-to-refugees-helping-refugees"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
               >
                 Volunteer
               </button>
