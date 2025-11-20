@@ -55,9 +55,15 @@ export function Header() {
               </button>
             </ContactModal>
           </nav>
-          <Button asChild className="bg-purple-900 text-white hover:bg-purple-800 border-purple-900">
-            <a href="/donations/donate-to-rhr/">Donate Now</a>
-          </Button>
+        <Button asChild className="bg-purple-900 text-white hover:bg-purple-800 border-purple-900">
+            <a
+              href="https://www.zeffy.com/en-US/donation-form/donate-to-refugees-helping-refugees"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            Donate Now
+          </a>
+        </Button>
         </div>
       </div>
     </header>
