@@ -79,17 +79,16 @@ export function Footer() {
             <h3 className="text-xl font-semibold">Get Involved</h3>
             <div className="space-y-2">
               <a
-                href="/donations/donate-to-rhr/"
+                href="https://www.zeffy.com/en-US/donation-form/donate-to-refugees-helping-refugees"
                 className="block text-white/90 hover:text-white transition-colors cursor-pointer"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Donate
               </a>
               <button
-              <a
-                  href="https://www.zeffy.com/en-US/donation-form/donate-to-refugees-helping-refugees"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
+                onClick={() => scrollToSection("volunteer")}
+                className="block text-left text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 Volunteer
               </button>
