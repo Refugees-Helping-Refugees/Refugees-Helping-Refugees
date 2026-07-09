@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 
 const languages = [
@@ -13,16 +13,24 @@ const languages = [
 
 export default function RhrQrPage() {
   const [selected, setSelected] = useState("english")
+  const imageRef = useRef<HTMLDivElement>(null)
+
+  function handleSelect(key: string) {
+    setSelected(key)
+    setTimeout(() => {
+      imageRef.current?.scrollIntoView({ behavior: "smooth", block: "end" })
+    }, 50)
+  }
 
   return (
-    <main className="min-h-screen flex">
-      {/* Left sidebar */}
-      <div className="flex flex-col gap-3 p-6 w-56 border-r border-gray-200 justify-center">
+    <main className="min-h-screen flex flex-col md:flex-row">
+      {/* Language buttons — top bar on mobile, left sidebar on desktop */}
+      <div className="flex flex-row flex-wrap gap-2 p-4 md:flex-col md:gap-3 md:p-6 md:w-56 md:border-r md:border-gray-200 md:justify-center border-b border-gray-200">
         {languages.map(({ label, key }) => (
           <button
             key={key}
-            onClick={() => setSelected(key)}
-            className={`py-3 px-4 rounded-lg font-medium text-left transition-colors ${
+            onClick={() => handleSelect(key)}
+            className={`py-2 px-3 rounded-lg font-medium text-sm transition-colors md:py-3 md:px-4 md:text-base md:text-left ${
               selected === key
                 ? "bg-purple-600 text-white"
                 : "bg-gray-100 hover:bg-gray-200 text-gray-800"
@@ -33,8 +41,8 @@ export default function RhrQrPage() {
         ))}
       </div>
 
-      {/* Right: poster image */}
-      <div className="flex-1 flex items-center justify-center p-8">
+      {/* Poster image */}
+      <div ref={imageRef} className="flex-1 flex items-center justify-center p-4 md:p-8">
         <div className="relative w-full max-w-2xl aspect-[3/4]">
           <Image
             src={`/poster/poster_${selected}.png`}
