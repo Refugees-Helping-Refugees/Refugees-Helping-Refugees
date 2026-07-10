@@ -19,10 +19,13 @@ for lang in "${LANGUAGES[@]}"; do
   # Convert PDF pages to PNGs at 150 DPI
   pdftoppm -r 150 -png "$PDF" "$OUT_DIR/page"
 
-  # Rename to consistent page-1.png, page-2.png, ... (pdftoppm zero-pads)
+  # Rename to consistent page-1.png, page-2.png, ... (pdftoppm may zero-pad)
   i=1
   for f in $(ls "$OUT_DIR"/*.png 2>/dev/null | sort); do
-    mv "$f" "$OUT_DIR/page-$i.png"
+    target="$OUT_DIR/page-$i.png"
+    if [ "$f" != "$target" ]; then
+      mv "$f" "$target"
+    fi
     i=$((i+1))
   done
 
