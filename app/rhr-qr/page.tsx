@@ -1,7 +1,9 @@
 "use client"
 
 import { useState, useRef } from "react"
-import Image from "next/image"
+import dynamic from "next/dynamic"
+
+const PdfViewer = dynamic(() => import("./PdfViewer"), { ssr: false })
 
 const languages = [
   { label: "English", key: "english" },
@@ -13,12 +15,12 @@ const languages = [
 
 export default function RhrQrPage() {
   const [selected, setSelected] = useState("english")
-  const imageRef = useRef<HTMLDivElement>(null)
+  const pdfRef = useRef<HTMLDivElement>(null)
 
   function handleSelect(key: string) {
     setSelected(key)
     setTimeout(() => {
-      imageRef.current?.scrollIntoView({ behavior: "smooth", block: "end" })
+      pdfRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
     }, 50)
   }
 
@@ -41,16 +43,9 @@ export default function RhrQrPage() {
         ))}
       </div>
 
-      {/* Poster image */}
-      <div ref={imageRef} className="flex-1 flex items-center justify-center p-4 md:p-8">
-        <div className="relative w-full max-w-2xl aspect-[3/4]">
-          <Image
-            src={`/poster/poster_${selected}.png`}
-            alt={`${selected} poster`}
-            fill
-            className="object-contain"
-          />
-        </div>
+      {/* PDF viewer */}
+      <div ref={pdfRef} className="flex-1 flex flex-col items-center py-6 px-4 overflow-y-auto">
+        <PdfViewer key={selected} lang={selected} />
       </div>
     </main>
   )
