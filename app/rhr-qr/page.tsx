@@ -27,7 +27,7 @@ export default function RhrQrPage() {
   return (
     <main className="min-h-screen flex flex-col md:flex-row">
       {/* Language buttons — top bar on mobile, left sidebar on desktop */}
-      <div className="flex flex-row flex-wrap gap-2 p-4 md:flex-col md:gap-3 md:p-6 md:w-56 md:border-r md:border-gray-200 md:justify-center border-b border-gray-200">
+      <div className="flex flex-row flex-wrap gap-2 p-4 border-b border-gray-200 md:flex-col md:gap-3 md:p-6 md:w-56 md:border-r md:border-b-0 md:sticky md:top-0 md:self-start md:max-h-screen md:overflow-y-auto md:justify-start">
         {languages.map(({ label, key }) => (
           <button
             key={key}
