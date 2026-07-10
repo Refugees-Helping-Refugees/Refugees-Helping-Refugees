@@ -12,7 +12,7 @@ export default function PdfViewer({ lang }: { lang: string }) {
 
   return (
     <Document
-      file={`/api/poster/${lang}`}
+      file={`/poster/poster_${lang}.pdf`}
       onLoadSuccess={({ numPages }) => setNumPages(numPages)}
       loading={<p className="text-gray-400 mt-8">Loading...</p>}
       error={<p className="text-red-400 mt-8">Failed to load PDF.</p>}
