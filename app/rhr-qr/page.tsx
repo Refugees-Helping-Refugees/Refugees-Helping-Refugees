@@ -47,6 +47,7 @@ export default function RhrQrPage() {
       <div ref={pdfRef} className="flex-1 flex flex-col items-center py-6 px-4 overflow-y-auto">
         <PdfViewer key={selected} lang={selected} />
       </div>
+      
     </main>
   )
 }
