@@ -1,0 +1,164 @@
+{
+    "key": "group_rhr_front_page",
+    "title": "Front Page Content",
+    "fields": [
+        {
+            "key": "field_rhr_hero_heading",
+            "label": "Hero Heading",
+            "name": "hero_heading",
+            "type": "text",
+            "default_value": "Empowering Refugees Through Community"
+        },
+        {
+            "key": "field_rhr_hero_subheading",
+            "label": "Hero Subheading",
+            "name": "hero_subheading",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Refugees Helping Refugees (RHR) serves refugees of Western New York, fostering growth, self-determination, and self-reliance by making them agents of their own advancement."
+        },
+        {
+            "key": "field_rhr_hero_image",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_rhr_programs",
+            "label": "Programs",
+            "name": "programs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Program",
+            "sub_fields": [
+                {
+                    "key": "field_rhr_program_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rhr_program_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_rhr_program_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium"
+                }
+            ]
+        },
+        {
+            "key": "field_rhr_volunteer_heading",
+            "label": "Volunteer Heading",
+            "name": "volunteer_heading",
+            "type": "text",
+            "default_value": "Join Our Volunteer Community"
+        },
+        {
+            "key": "field_rhr_volunteer_paragraph_1",
+            "label": "Volunteer Paragraph 1",
+            "name": "volunteer_paragraph_1",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rhr_volunteer_paragraph_2",
+            "label": "Volunteer Paragraph 2",
+            "name": "volunteer_paragraph_2",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rhr_volunteer_signup_url",
+            "label": "Volunteer Sign-Up URL",
+            "name": "volunteer_signup_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rhr_volunteer_image",
+            "label": "Volunteer Image",
+            "name": "volunteer_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_rhr_impact_banner_image",
+            "label": "Impact Banner Image",
+            "name": "impact_banner_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_rhr_impact_heading",
+            "label": "Impact Heading",
+            "name": "impact_heading",
+            "type": "text",
+            "default_value": "Making a Difference"
+        },
+        {
+            "key": "field_rhr_impact_subheading",
+            "label": "Impact Subheading",
+            "name": "impact_subheading",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rhr_impact_stats",
+            "label": "Impact Stats",
+            "name": "impact_stats",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Stat",
+            "sub_fields": [
+                {
+                    "key": "field_rhr_stat_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rhr_stat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rhr_location_map_embed_url",
+            "label": "Google Maps Embed URL",
+            "name": "location_map_embed_url",
+            "type": "url",
+            "instructions": "The src= URL from Google Maps > Share > Embed a map."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Editable content for the site's front page, rendered by front-page.php and template-parts/*.php.",
+    "show_in_rest": 0
+}

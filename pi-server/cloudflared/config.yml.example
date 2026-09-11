@@ -1,0 +1,11 @@
+# Copy this file to config.yml (in this same directory) and fill in the real
+# tunnel UUID after running `cloudflared tunnel create rhr-pi-tunnel`.
+# config.yml itself is gitignored — it's Pi-specific, not committed.
+
+tunnel: REPLACE-WITH-TUNNEL-UUID
+credentials-file: /etc/cloudflared/creds/REPLACE-WITH-TUNNEL-UUID.json
+
+ingress:
+  - hostname: edit.rhrroc.org
+    service: http://wordpress:80
+  - service: http_status:404

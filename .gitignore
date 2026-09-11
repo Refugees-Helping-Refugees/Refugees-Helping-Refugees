@@ -1,2 +1,7 @@
 node_modules/
 .next
+
+# Pi-server: secrets and machine-specific files, never committed
+pi-server/.env
+pi-server/cloudflared/config.yml
+pi-server/wp2static-export/

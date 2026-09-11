@@ -1,0 +1,81 @@
+name: rhr
+
+services:
+  db:
+    image: mariadb:11.4
+    container_name: rhr-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks: [rhr-internal]
+
+  wordpress:
+    image: wordpress:6-php8.3-apache
+    container_name: rhr-wordpress
+    restart: unless-stopped
+    depends_on: [db]
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      # WP_HOME/WP_SITEURL point at the Cloudflare Tunnel hostname, never a public IP/port.
+      # Trusting X-Forwarded-Proto is required or wp-login redirect-loops behind the tunnel.
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'https://${EDIT_HOSTNAME:-edit.rhrroc.org}');
+        define('WP_SITEURL', 'https://${EDIT_HOSTNAME:-edit.rhrroc.org}');
+        define('FORCE_SSL_ADMIN', true);
+        define('DISABLE_WP_CRON', true);
+        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+            $_SERVER['HTTPS'] = 'on';
+        }
+    volumes:
+      - wp_data:/var/www/html
+      - ./wordpress/themes/rhr-theme:/var/www/html/wp-content/themes/rhr-theme
+      - ${WP2STATIC_EXPORT_DIR:-./wp2static-export}:/var/www/html/wp2static-export
+    ports:
+      # Loopback-only, for local troubleshooting from the Pi itself. Never exposed
+      # off-box — the tunnel is the only way in from outside.
+      - "127.0.0.1:8080:80"
+    networks: [rhr-internal]
+
+  # On-demand wp-cli sidecar. Never started by `docker compose up`; invoke with:
+  #   docker compose --profile tools run --rm wpcli <command>
+  wpcli:
+    image: wordpress:cli-php8.3
+    profiles: ["tools"]
+    depends_on: [db, wordpress]
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - wp_data:/var/www/html
+      - ./wordpress/themes/rhr-theme:/var/www/html/wp-content/themes/rhr-theme
+      - ${WP2STATIC_EXPORT_DIR:-./wp2static-export}:/var/www/html/wp2static-export
+    networks: [rhr-internal]
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: rhr-cloudflared
+    restart: unless-stopped
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./cloudflared/config.yml:/etc/cloudflared/config.yml:ro
+      - ${CLOUDFLARED_CREDS_DIR}:/etc/cloudflared/creds:ro
+    networks: [rhr-internal]
+    depends_on: [wordpress]
+
+networks:
+  rhr-internal:
+    driver: bridge
+
+volumes:
+  db_data:
+  wp_data:
