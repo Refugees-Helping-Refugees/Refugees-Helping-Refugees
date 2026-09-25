@@ -12,7 +12,7 @@ $address  = rhr_option('contact_address', '228 South Plymouth Ave, Rochester, NY
 $phone    = rhr_option('contact_phone', '(585) 563-7747');
 $email    = rhr_option('contact_email', 'rhr@rhrroc.org');
 $maps_url = 'https://maps.google.com/?q=' . rawurlencode($address);
-$embed_src = get_field('location_map_embed_url') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.8234567890123!2d-77.6109!3d43.1547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d6b3c4d5e6f7a8%3A0x1234567890abcdef!2s228%20South%20Plymouth%20Ave%2C%20Rochester%2C%20NY%2014608!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus';
+$embed_src = get_field('location_map_embed_url') ?: $maps_url . '&output=embed';
 ?>
 <section class="location">
   <div class="container">
