@@ -1,0 +1,31 @@
+/* Shared canvas styling for the native block homepage. */
+.rhr-section {padding:5rem 0; background:#faf5ff; margin:0;}
+.rhr-section .wp-block-group, .rhr-section .wp-block-image {box-sizing:border-box;}
+.rhr-section figure {margin:0;}
+.rhr-section .container {max-width:1200px;margin-left:auto;margin-right:auto;padding:0 1rem;}
+.rhr-section .wp-block-button__link {background:#581c87;color:#fff;border:1px solid #581c87;border-radius:.5rem;padding:.65rem 1.5rem;font-family:inherit;font-size:1rem;font-weight:500;line-height:1.5;text-decoration:none;}
+.rhr-section .rhr-outline .wp-block-button__link {background:#fff;color:#581c87;border-color:#d8b4fe;}
+.rhr-section .wp-block-buttons {margin:0;gap:.75rem;}
+.rhr-section .stat-card p {margin-top:0;margin-bottom:0;}
+.rhr-section .stat-card .stat-card__number {margin-bottom:.5rem;}
+.rhr-section .impact__banner {margin-bottom:4rem;}
+.rhr-section .hero__heading {font-size:2.5rem;}
+.rhr-section .hero__grid,.rhr-section .volunteer__grid,.rhr-section .location__grid,.rhr-section .card-grid,.rhr-section .stat-grid {display:grid;}
+.editor-styles-wrapper {font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#111827;line-height:1.5;}
+.editor-styles-wrapper .wp-block {max-width:none;}
+.editor-styles-wrapper .is-root-container > .rhr-section {margin:0;}
+.editor-styles-wrapper .rhr-section .block-editor-block-list__layout > .wp-block {margin-top:0;}
+.editor-styles-wrapper .rhr-section .hero__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .rhr-section .volunteer__grid > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .rhr-section .location__grid > .block-editor-inner-blocks > .block-editor-block-list__layout {display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+@media(max-width:767px){.rhr-section{padding:3rem 0;}.rhr-section .hero__heading{font-size:2rem;}}
+/* Let native Group wrappers inherit the section's grid. */
+.rhr-section .wp-block-group__inner-container {display:contents;}
+.editor-styles-wrapper .rhr-section .block-editor-inner-blocks,
+.editor-styles-wrapper .rhr-section .block-editor-block-list__layout {display:contents !important;}
+.rhr-section .wp-block-image img {display:block;width:100%;}
+.rhr-section figure.card__image {height:auto;aspect-ratio:16/9;overflow:hidden;}
+.rhr-section figure.card__image img {height:100%;object-fit:cover;}
+.rhr-section figure.impact__banner img {height:100%;object-fit:cover;}
+.rhr-section figure.impact__banner img {height:20rem;}
+.rhr-section .location__card > .wp-block-buttons {display:inline-flex;margin-right:.5rem;margin-top:.5rem;}
