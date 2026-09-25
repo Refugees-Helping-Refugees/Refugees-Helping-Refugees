@@ -53,3 +53,16 @@ function rhr_option(string $key, $default = '') {
     $value = get_field($key, 'option');
     return $value !== null && $value !== '' ? $value : $default;
 }
+
+// Match native block editing to the public homepage design.
+add_action('after_setup_theme', function () {
+    add_theme_support('editor-styles');
+    add_editor_style(['assets/css/main.css', 'assets/css/blocks.css']);
+});
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('rhr-blocks', get_template_directory_uri().'/assets/css/blocks.css', ['rhr-main'], '1.0');
+});
+add_filter('acf/load_field_group', function ($group) {
+    if (($group['key'] ?? '') === 'group_rhr_front_page' && has_blocks(get_post_field('post_content', (int)get_option('page_on_front')))) $group['active'] = false;
+    return $group;
+});
