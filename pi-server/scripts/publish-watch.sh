@@ -1,65 +1,32 @@
 #!/usr/bin/env bash
-# Runs a WP2Static crawl + deploy, then syncs the result into docs/ and
-# pushes it to GitHub. Meant to run on a cron on the Pi (see pi-server/README.md).
-#
-# Safe to run by hand too — it no-ops if another run is already in progress,
-# and only commits/pushes when the exported output actually changed.
 set -euo pipefail
-
-# --- Configuration: edit these three paths for your Pi, or export them
-# before calling this script (e.g. from crontab with `REPO_DIR=... EXPORT_DIR=... bash ...`).
-REPO_DIR="${REPO_DIR:-/home/hamzah/rhr-site-repo}"
-COMPOSE_DIR="${COMPOSE_DIR:-$REPO_DIR/pi-server}"
-EXPORT_DIR="${EXPORT_DIR:-/home/hamzah/wp2static-export}"
-LOCKFILE="/tmp/rhr-publish.lock"
-
-log() { echo "$(date '+%Y-%m-%d %H:%M:%S') - $*"; }
-
-exec 200>"$LOCKFILE"
-if ! flock -n 200; then
-  log "another publish run is already in progress, skipping"
-  exit 0
-fi
-
-log "starting publish run"
+REPO_DIR=/home/pi/Refugees-Helping-Refugees
+COMPOSE_DIR="$REPO_DIR/pi-server"
+EXPORT_DIR=/home/pi/wp2static-export
+STATE_DIR=/home/pi/.local/state/rhr-publisher
+mkdir -p "$STATE_DIR"
+exec 200>"$STATE_DIR/publish.lock"
+flock -n 200 || exit 0
 cd "$COMPOSE_DIR"
-
-# 1. Trigger crawl + deploy. Confirm these are the exact wp2static subcommand
-#    names for your installed plugin version with: docker compose --profile tools run --rm wpcli wp2static --help
-docker compose --profile tools run --rm wpcli wp2static crawl
-docker compose --profile tools run --rm wpcli wp2static deploy
-
-# 2. Quiescence check: if the export directory was modified in the last 30s,
-#    the deploy may still be writing files — skip this run rather than
-#    syncing a half-written export, cron will catch it on the next tick.
-if find "$EXPORT_DIR" -newermt '-30 seconds' 2>/dev/null | grep -q .; then
-  log "export directory still changing, skipping this run"
-  exit 0
-fi
-
-if [ ! -d "$EXPORT_DIR" ] || [ -z "$(ls -A "$EXPORT_DIR" 2>/dev/null)" ]; then
-  log "export directory is empty, nothing to publish"
-  exit 0
-fi
-
-# 3. Sync the export into the git working tree. --delete keeps docs/ an exact
-#    mirror of the export, but that also wipes GitHub Pages' required files,
-#    which get re-written in step 4.
-rsync -a --delete \
-  --exclude '.git' --exclude 'CNAME' --exclude '.nojekyll' \
-  "$EXPORT_DIR"/ "$REPO_DIR"/docs/
-
-# 4. Re-assert the files GitHub Pages needs that rsync --delete just removed.
-echo "rhrroc.org" > "$REPO_DIR/docs/CNAME"
-touch "$REPO_DIR/docs/.nojekyll"
-
-# 5. Commit and push only if something actually changed.
+wp() { docker compose --profile tools run --rm -T --user 33:33 -e WP_CLI_CACHE_DIR=/tmp/wp-cli-cache wpcli --url=https://edit.rhrroc.org "$@"; }
+status() { wp eval '$o=Simply_Static\Options::instance(); $log=$o->get("archive_status_messages"); if(Simply_Static\Plugin::instance()->is_export_active() || empty($log["done"]) || !$o->get("archive_end_time")){exit(2);} echo $o->get("archive_start_time")."|".$o->get("archive_end_time");'; }
+export_id="$(status)" || exit 0
+if [[ -f "$STATE_DIR/published" && "$(cat "$STATE_DIR/published")" == "$export_id" ]]; then exit 0; fi
+stage="$(mktemp -d "$STATE_DIR/staging.XXXXXX")"
+trap 'rm -rf "$stage"' EXIT
+rsync -rlt --safe-links "$EXPORT_DIR/" "$stage/"
+python3 "$COMPOSE_DIR/scripts/validate-export.py" "$stage"
+[[ "$(status)" == "$export_id" ]] || { echo 'Export changed during copy; retry later.' >&2; exit 1; }
+printf '%s\n' 'rhrroc.org' > "$stage/CNAME"
+touch "$stage/.nojekyll"
 cd "$REPO_DIR"
-git add docs
-if git diff --cached --quiet; then
-  log "no changes to publish"
-else
-  git commit -m "Automated static site update from WordPress ($(date '+%Y-%m-%d %H:%M'))"
-  git push origin main
-  log "published update to origin/main"
-fi
+[[ "$(git branch --show-current)" == main ]] || { echo 'Publisher requires main.' >&2; exit 1; }
+git diff --cached --quiet || { echo 'Unrelated staged changes; refusing to commit.' >&2; exit 1; }
+git fetch origin main
+git merge-base --is-ancestor origin/main HEAD || { echo 'Remote main advanced; reconcile before publishing.' >&2; exit 1; }
+rsync -rlt --delete "$stage/" "$REPO_DIR/docs/"
+git add -- docs
+if ! git diff --cached --quiet; then git commit -m "Publish completed WordPress export" -- docs; fi
+git push origin HEAD:main
+printf '%s\n' "$export_id" > "$STATE_DIR/published"
+echo "Published export $export_id"
