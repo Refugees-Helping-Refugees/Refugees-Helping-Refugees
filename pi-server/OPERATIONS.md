@@ -33,3 +33,9 @@ The old Next.js workflow is retained in pi-server/legacy, outside .github/workfl
 Run bash pi-server/scripts/publish-watch.sh to publish a completed export manually. It refuses incomplete output, missing assets, private editor links, unexpected staged changes, and remote history divergence. It never force-pushes. Failed pushes retry on the next run.
 
 Git retains previous public site versions. Revert the appropriate docs commit to roll back public content. Back up the WordPress database and uploads before upgrades; Git tracks generated output, not the editable database. The initial backup predates the migration.
+
+## Installed Pi schedule
+
+The pi user's crontab checks for completed exports every minute, runs due WordPress events every five minutes, and backs up the database and uploaded media daily at 03:15 in the Pi's timezone. Logs are in /home/pi/.local/state/rhr-publisher. Daily verified archives are in /home/pi/rhr-backups/daily and retained for 14 days. These are local backups; a Pi disk failure still requires an off-device backup. No paid backup service is connected.
+
+Contact links follow the editable Site Settings email, phone, and address values. Gmail delivery uses WP Mail SMTP Lite, smtp.gmail.com, TLS port 587, and the account alanihamzah25@gmail.com; the owner must enter a Google app password before delivery can be tested. Never commit that password or the WordPress database to this public repository.

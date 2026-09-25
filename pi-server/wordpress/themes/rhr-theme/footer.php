@@ -13,10 +13,10 @@ if (!defined('ABSPATH')) {
 
       <div class="site-footer__col">
         <h3>Contact Us</h3>
-        <p><a href="tel:+15855637747"><?php echo esc_html(rhr_option('contact_phone', '(585) 563-7747')); ?></a></p>
-        <p><a href="mailto:rhr@rhrroc.org"><?php echo esc_html(rhr_option('contact_email', 'rhr@rhrroc.org')); ?></a></p>
+        <p><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', rhr_option('contact_phone', '(585) 563-7747'))); ?>"><?php echo esc_html(rhr_option('contact_phone', '(585) 563-7747')); ?></a></p>
+        <p><a href="mailto:<?php echo esc_attr(rhr_option('contact_email', 'rhr@rhrroc.org')); ?>"><?php echo esc_html(rhr_option('contact_email', 'rhr@rhrroc.org')); ?></a></p>
         <p>
-          <a href="https://maps.google.com/?q=228+South+Plymouth+Rochester+NY+14608" target="_blank" rel="noreferrer">
+          <a href="<?php echo esc_url('https://maps.google.com/?q=' . rawurlencode(rhr_option('contact_address', '228 South Plymouth Ave, Rochester, NY 14608'))); ?>" target="_blank" rel="noreferrer">
             <?php echo nl2br(esc_html(rhr_option('contact_address', "228 South Plymouth\nRochester, NY 14608"))); ?>
           </a>
         </p>

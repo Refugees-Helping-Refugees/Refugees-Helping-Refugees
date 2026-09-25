@@ -24,7 +24,7 @@ $embed_src = get_field('location_map_embed_url') ?: 'https://www.google.com/maps
       <div class="location__card">
         <h3>Our Location</h3>
         <p><strong>Address:</strong> <?php echo esc_html($address); ?></p>
-        <p><strong>Phone:</strong> <a href="tel:+15855637747"><?php echo esc_html($phone); ?></a></p>
+        <p><strong>Phone:</strong> <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', rhr_option('contact_phone', '(585) 563-7747'))); ?>"><?php echo esc_html($phone); ?></a></p>
         <p><strong>Email:</strong> <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p>
         <div class="location__actions">
           <a href="<?php echo esc_url($maps_url); ?>" target="_blank" rel="noreferrer" class="btn btn--outline">Open in Maps</a>
