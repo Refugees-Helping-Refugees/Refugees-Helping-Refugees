@@ -1,0 +1,68 @@
+{
+    "key": "group_rhr_site_settings",
+    "title": "Site Settings",
+    "fields": [
+        {
+            "key": "field_rhr_site_logo",
+            "label": "Site Logo",
+            "name": "site_logo",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_rhr_donate_button_url",
+            "label": "Donate Button URL",
+            "name": "donate_button_url",
+            "type": "url",
+            "default_value": "https://www.zeffy.com/en-US/donation-form/donate-to-refugees-helping-refugees"
+        },
+        {
+            "key": "field_rhr_donate_button_text",
+            "label": "Donate Button Text",
+            "name": "donate_button_text",
+            "type": "text",
+            "default_value": "Donate Now"
+        },
+        {
+            "key": "field_rhr_contact_phone",
+            "label": "Contact Phone",
+            "name": "contact_phone",
+            "type": "text",
+            "default_value": "(585) 563-7747"
+        },
+        {
+            "key": "field_rhr_contact_email",
+            "label": "Contact Email",
+            "name": "contact_email",
+            "type": "email",
+            "default_value": "rhr@rhrroc.org"
+        },
+        {
+            "key": "field_rhr_contact_address",
+            "label": "Contact Address",
+            "name": "contact_address",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "228 South Plymouth\nRochester, NY 14608"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "rhr-site-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Sitewide settings: donate button, contact info, logo. Edited via Site Settings in the wp-admin sidebar.",
+    "show_in_rest": 0
+}
