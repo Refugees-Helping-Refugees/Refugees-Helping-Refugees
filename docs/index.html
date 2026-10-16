@@ -70,7 +70,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <link rel="stylesheet" id="rhr-main-css" href="https://rhrroc.org/wp-content/themes/rhr-theme/assets/css/main.css?ver=1.0" media="all">
 <link rel="stylesheet" id="rhr-blocks-css" href="https://rhrroc.org/wp-content/themes/rhr-theme/assets/css/blocks.css?ver=1.0" media="all">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://rhrroc.org/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 7.1.2">
+<meta name="generator" content="WordPress 7.1.3">
 <link rel="canonical" href="https://rhrroc.org/">
 <link rel="shortlink" href="https://rhrroc.org/">
 </head>
@@ -123,27 +123,50 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </div>
 <main id="main-content" class="rhr-block-home">
 
-<div id="hero" class="wp-block-group rhr-section hero"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+<div id="hero" class="wp-block-group rhr-section hero rhr-hero-refresh"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <div class="wp-block-group container hero__grid"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <div class="wp-block-group hero__copy"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-<h1 class="wp-block-heading hero__heading">Empowering Refugees Through Community</h1>
+<p class="hero__eyebrow wp-block-paragraph">Refugee-led · Rochester, NY</p>
+
+
+<h1 class="wp-block-heading hero__heading">Empowering Refugees <mark style="background-color:rgba(0, 0, 0, 0);color:#581c87" class="has-inline-color">Through Community</mark></h1>
 
 
 <p class="hero__subheading wp-block-paragraph">Refugees Helping Refugees (RHR) serves refugees of Western New York, fostering growth, self-determination, and self-reliance by making them agents of their own advancement.</p>
 
 
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#programs">Learn More</a></div>
+<div class="wp-block-buttons hero__actions is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#programs">Explore our programs</a></div>
 
+
+<div class="wp-block-button rhr-outline"><a class="wp-block-button__link wp-element-button" href="#volunteer">Volunteer with us</a></div>
 </div>
-
 </div></div>
 
 
-<figure class="wp-block-image size-full hero__image"><img fetchpriority="high" decoding="async" width="1950" height="716" src="https://rhrroc.org/wp-content/uploads/2026/09/hero-photo.jpg" alt="" class="wp-image-9" srcset="https://rhrroc.org/wp-content/uploads/2026/09/hero-photo.jpg 1950w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-300x110.jpg 300w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-1024x376.jpg 1024w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-768x282.jpg 768w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-1536x564.jpg 1536w" sizes="(max-width: 1950px) 100vw, 1950px"></figure>
-
+<figure class="wp-block-image size-full hero__image"><img fetchpriority="high" decoding="async" width="1950" height="716" src="https://rhrroc.org/wp-content/uploads/2026/09/hero-photo.jpg" alt="Community members learning together at Refugees Helping Refugees" class="wp-image-9" srcset="https://rhrroc.org/wp-content/uploads/2026/09/hero-photo.jpg 1950w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-300x110.jpg 300w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-1024x376.jpg 1024w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-768x282.jpg 768w, https://rhrroc.org/wp-content/uploads/2026/09/hero-photo-1536x564.jpg 1536w" sizes="(max-width: 1950px) 100vw, 1950px"></figure>
 </div></div>
 
+
+<style>
+/* Homepage hero: one white section with editable native blocks. */
+#hero.rhr-hero-refresh{background:#fff;padding:clamp(3rem,6vw,5.5rem) 0;border-bottom:1px solid #eee5f4;overflow:hidden}
+#hero.rhr-hero-refresh .hero__grid{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:clamp(2rem,5vw,4.5rem)}
+#hero.rhr-hero-refresh .hero__copy{min-width:0;background:transparent;padding:0}
+#hero.rhr-hero-refresh .hero__eyebrow{color:#581c87;font-size:.78rem;font-weight:700;line-height:1.5;letter-spacing:.12em;text-transform:uppercase;margin:0 0 1.25rem}
+#hero.rhr-hero-refresh .hero__heading{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important;margin:0 0 1.5rem;color:#1b1724;font-size:clamp(2.35rem,3.7vw,3.5rem);font-weight:750;letter-spacing:-.04em;line-height:1.1;text-wrap:balance}
+#hero.rhr-hero-refresh .hero__heading mark{padding:0}
+#hero.rhr-hero-refresh .hero__subheading{font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.75;max-width:54ch;color:#586170;margin:0 0 1.75rem}
+#hero.rhr-hero-refresh .hero__actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0}
+#hero.rhr-hero-refresh .hero__actions>.wp-block-button{margin:0}
+#hero.rhr-hero-refresh .hero__actions .wp-block-button__link{display:inline-flex;align-items:center;justify-content:center;min-height:48px;box-sizing:border-box;padding:.8rem 1.25rem;font-size:1rem;font-weight:600;line-height:1.4;border-radius:.6rem}
+#hero.rhr-hero-refresh .hero__actions .rhr-outline .wp-block-button__link{background:#fff;color:#581c87;border:1px solid #d8b4fe}
+#hero.rhr-hero-refresh .hero__actions .rhr-outline .wp-block-button__link:hover{background:#faf5ff}
+#hero.rhr-hero-refresh figure.hero__image{width:100%;min-width:0;margin:0;position:relative;border-radius:1.25rem;box-shadow:14px 14px 0 #f2e9fa,0 12px 32px rgba(41,17,58,.08)}
+#hero.rhr-hero-refresh figure.hero__image img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;object-position:center;border-radius:1.25rem;box-shadow:none}
+@media(max-width:800px){#hero.rhr-hero-refresh{padding:3rem 0 3.5rem}#hero.rhr-hero-refresh .hero__grid{grid-template-columns:1fr;gap:2.25rem}#hero.rhr-hero-refresh .hero__copy{max-width:620px}#hero.rhr-hero-refresh .hero__heading{max-width:18ch;font-size:clamp(2.25rem,7vw,3.25rem);text-wrap:initial}#hero.rhr-hero-refresh .hero__subheading{max-width:58ch}#hero.rhr-hero-refresh figure.hero__image{box-shadow:8px 8px 0 #f2e9fa}#hero.rhr-hero-refresh figure.hero__image img{aspect-ratio:2.3/1}}
+@media(prefers-reduced-motion:reduce){#hero.rhr-hero-refresh *{scroll-behavior:auto}}
+</style>
 </div></div>
 
 
@@ -187,6 +210,18 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </div></div>
 
 </div></div>
+
+
+<div class="wp-block-group card scn-program-card"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><figure class="wp-block-image size-full card__image scn-card-building"><img loading="lazy" decoding="async" width="1350" height="900" src="https://rhrroc.org/wp-content/uploads/2026/10/rhr-building-loopnet.avif" alt="RHR office building at 228 South Plymouth Avenue in Rochester" class="wp-image-42" srcset="https://rhrroc.org/wp-content/uploads/2026/10/rhr-building-loopnet.avif 1350w, https://rhrroc.org/wp-content/uploads/2026/10/rhr-building-loopnet-300x200.avif 300w, https://rhrroc.org/wp-content/uploads/2026/10/rhr-building-loopnet-1024x683.avif 1024w, https://rhrroc.org/wp-content/uploads/2026/10/rhr-building-loopnet-768x512.avif 768w" sizes="auto, (max-width: 1350px) 100vw, 1350px"></figure>
+<div class="wp-block-group card__body"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><h3 class="wp-block-heading card__title"><a href="https://rhrroc.org/social-care-network/">Social Care Network</a></h3>
+<p class="card__description wp-block-paragraph">Screenings, referrals, and community support for eligible Medicaid members. Appointments and walk-ins are welcome.</p>
+
+<p class="scn-card-arrow wp-block-paragraph">Learn more →</p>
+</div></div>
+</div></div>
+
+
+<style>.rhr-section.programs .card-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.75rem,2.4vw,2rem)}.rhr-section.programs .card{height:100%;min-width:0}.rhr-section.programs .card__body{padding:clamp(1rem,2vw,1.5rem)}.rhr-section.programs .card__title{font-size:clamp(1.1rem,2vw,1.5rem)}.rhr-section.programs .card__description{font-size:clamp(.95rem,1.5vw,1.125rem)}.rhr-section .scn-program-card{position:relative;display:flex;flex-direction:column}.rhr-section .scn-program-card .card__body{display:flex;flex-direction:column;flex:1}.rhr-section .scn-program-card .card__title a{color:inherit;text-decoration:none}.rhr-section .scn-program-card .card__title a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:.5rem}.rhr-section .scn-program-card .card__title a:focus-visible{outline:none}.rhr-section .scn-program-card .card__title a:focus-visible::after{outline:3px solid #a855f7;outline-offset:4px}.rhr-section .scn-card-arrow{font-size:1.05rem;line-height:1.4;font-weight:600;color:#581c87;text-align:right;margin:auto 0 0;padding-top:1.5rem}#programs figure.card__image.scn-card-building{width:100%;aspect-ratio:16/9;margin:0;overflow:hidden;flex:none}#programs figure.card__image.scn-card-building img{display:block;position:static;width:100%;height:100%;max-width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 60%;transform:none;border-radius:0}.rhr-section .scn-program-card:hover .scn-card-arrow{transform:translateX(4px)}.rhr-section figure.card__image.scn-office-photo{position:relative;overflow:hidden;aspect-ratio:16/9;width:100%;flex:none}.rhr-section figure.card__image.scn-office-photo img{position:absolute;top:0;left:-172.73%;width:449.75%;max-width:none;height:auto;aspect-ratio:auto;transform:translateY(-61%);object-fit:initial;border-radius:0}@media(max-width:599px){.rhr-section.programs .card-grid{grid-template-columns:1fr}}</style>
 
 </div></div>
 
@@ -304,13 +339,9 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <p class="wp-block-paragraph"><strong>Email:</strong> <a href="mailto:rhr@rhrroc.org">rhr@rhrroc.org</a></p>
 
 
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-buttons rhr-location-actions is-layout-flex wp-block-buttons-is-layout-flex">
 <div class="wp-block-button rhr-outline"><a class="wp-block-button__link wp-element-button" href="https://maps.google.com/?q=228%20South%20Plymouth%20Ave%2C%20Rochester%2C%20NY%2014608">Open in Maps</a></div>
 
-</div>
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
 <div class="wp-block-button rhr-outline js-open-contact-modal"><a class="wp-block-button__link wp-element-button" href="#contact-modal">Contact Us</a></div>
 
 </div>
@@ -328,6 +359,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </div></div>
 
 </div></div>
+
+
+
+<style>.rhr-section.location .rhr-location-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:1.25rem}.rhr-section.location .rhr-location-actions>.wp-block-button{margin:0}</style>
 
 </main>
 <footer class="site-footer">
@@ -384,7 +419,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </script>
 <script id="rhr-main-js" src="https://rhrroc.org/wp-content/themes/rhr-theme/assets/js/main.js?ver=1.0"></script>
 <script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://rhrroc.org/wp-includes/js/wp-emoji-release.min.js?ver=7.1.2"}}
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://rhrroc.org/wp-includes/js/wp-emoji-release.min.js?ver=7.1.3"}}
 </script>
 <script type="module">
 /*! This file is auto-generated */
