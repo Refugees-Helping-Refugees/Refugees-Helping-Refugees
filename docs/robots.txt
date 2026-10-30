@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /print
+
+Sitemap: https://rhrroc.org/sitemap.xml
